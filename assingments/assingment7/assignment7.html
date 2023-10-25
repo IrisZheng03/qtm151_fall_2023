@@ -8614,7 +8614,9 @@ to missing values (NaNs) and covert to numeric</p>
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Create a list for replacement</span>
 <span class="n">old</span> <span class="o">=</span> <span class="s2">"</span><span class="se">\\</span><span class="s2">N"</span>
 <span class="n">sprint_results</span><span class="p">[</span><span class="s2">"position"</span><span class="p">]</span> <span class="o">=</span> <span class="n">sprint_results</span><span class="p">[</span><span class="s2">"position"</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">old</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+<span class="n">sprint_results</span><span class="p">[</span><span class="s2">"position_numeric"</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">sprint_results</span><span class="p">[</span><span class="s2">"position"</span><span class="p">])</span>
 <span class="n">display</span><span class="p">(</span><span class="n">sprint_results</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sprint_results</span><span class="p">[</span><span class="s2">"position_numeric"</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8661,6 +8663,7 @@ to missing values (NaNs) and covert to numeric</p>
 <th>fastestLap</th>
 <th>fastestLapTime</th>
 <th>statusId</th>
+<th>position_numeric</th>
 </tr>
 </thead>
 <tbody>
@@ -8682,6 +8685,7 @@ to missing values (NaNs) and covert to numeric</p>
 <td>14</td>
 <td>1:30.013</td>
 <td>1</td>
+<td>1.0</td>
 </tr>
 <tr>
 <th>1</th>
@@ -8701,6 +8705,7 @@ to missing values (NaNs) and covert to numeric</p>
 <td>17</td>
 <td>1:29.937</td>
 <td>1</td>
+<td>2.0</td>
 </tr>
 <tr>
 <th>2</th>
@@ -8720,6 +8725,7 @@ to missing values (NaNs) and covert to numeric</p>
 <td>17</td>
 <td>1:29.958</td>
 <td>1</td>
+<td>3.0</td>
 </tr>
 <tr>
 <th>3</th>
@@ -8739,6 +8745,7 @@ to missing values (NaNs) and covert to numeric</p>
 <td>16</td>
 <td>1:30.163</td>
 <td>1</td>
+<td>4.0</td>
 </tr>
 <tr>
 <th>4</th>
@@ -8758,9 +8765,11 @@ to missing values (NaNs) and covert to numeric</p>
 <td>16</td>
 <td>1:30.566</td>
 <td>1</td>
+<td>5.0</td>
 </tr>
 <tr>
 <th>...</th>
+<td>...</td>
 <td>...</td>
 <td>...</td>
 <td>...</td>
@@ -8796,6 +8805,7 @@ to missing values (NaNs) and covert to numeric</p>
 <td>4</td>
 <td>1:15.425</td>
 <td>1</td>
+<td>16.0</td>
 </tr>
 <tr>
 <th>116</th>
@@ -8815,6 +8825,7 @@ to missing values (NaNs) and covert to numeric</p>
 <td>5</td>
 <td>1:16.097</td>
 <td>1</td>
+<td>17.0</td>
 </tr>
 <tr>
 <th>117</th>
@@ -8834,6 +8845,7 @@ to missing values (NaNs) and covert to numeric</p>
 <td>5</td>
 <td>1:14.764</td>
 <td>1</td>
+<td>18.0</td>
 </tr>
 <tr>
 <th>118</th>
@@ -8853,6 +8865,7 @@ to missing values (NaNs) and covert to numeric</p>
 <td>4</td>
 <td>1:16.525</td>
 <td>1</td>
+<td>19.0</td>
 </tr>
 <tr>
 <th>119</th>
@@ -8872,11 +8885,19 @@ to missing values (NaNs) and covert to numeric</p>
 <td>4</td>
 <td>1:15.998</td>
 <td>31</td>
+<td>NaN</td>
 </tr>
 </tbody>
 </table>
-<p>120 rows × 16 columns</p>
+<p>120 rows × 17 columns</p>
 </div>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>float64
+</pre>
 </div>
 </div>
 </div>
@@ -8918,7 +8939,6 @@ order of mean position using ".sort_values()" <br/>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Write your own code</span>
-<span class="n">sprint_results</span><span class="p">[</span><span class="s2">"position_numeric"</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">sprint_results</span><span class="p">[</span><span class="s2">"position"</span><span class="p">])</span>
 <span class="n">df_aggConstrcId_pos</span> <span class="o">=</span> <span class="p">(</span><span class="n">sprint_results</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"constructorId"</span><span class="p">)</span>
                        <span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">position_mean</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'position_numeric'</span><span class="p">,</span><span class="s1">'mean'</span><span class="p">),</span>
                             <span class="n">position_sd</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'position_numeric'</span><span class="p">,</span><span class="s1">'std'</span><span class="p">)))</span>
