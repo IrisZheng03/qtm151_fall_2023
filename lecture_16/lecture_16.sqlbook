@@ -60,6 +60,7 @@ CREATE TABLE drivers(
     victories int
 );    
 
+
 -- SQLBook: Markup
 <font size="5"> 
 
